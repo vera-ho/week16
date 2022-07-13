@@ -46,7 +46,19 @@ class BST {
     }
 
     searchIter(val, root = this.root) {
+        if(!root) return false;
 
+        let tempRoot = root;
+        while(tempRoot) {               // stop searching when no more nodes to search
+            if(tempRoot.val === val) return true;
+
+            if(val < tempRoot.val) {    // search left of root
+                tempRoot = tempRoot.left;
+            } else {                    // search right of root
+                tempRoot = tempRoot.right;
+            }
+        }
+        return false;
     }
 }
 
